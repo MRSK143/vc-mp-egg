@@ -17,7 +17,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/bash\r\napt -y update\r\napt -y --no-install-recommends install curl unzip lib32gcc1 ca-certificates\r\ncd \/tmp\r\ncurl -sSL -o server.zip https:\/\/raw.githubusercontent.com\/hcgcloud\/pterodactyl-vcmp\/master\/server.zip\r\nmkdir -p \/mnt\/server\r\nunzip -o -d \/mnt\/server\/ server.zip\r\ncd \/mnt\/server\r\nchmod -R 744 \/mnt\/server\r\nexport HOME=\/mnt\/server",
+            "script": "#!\/bin\/bash\r\napt -y update\r\napt -y --no-install-recommends install curl unzip lib32gcc1 ca-certificates\r\ncd \/tmp\r\ncurl -sSL -o server.zip https:\/\/raw.githubusercontent.com\/mrsk143\/vc-mp-egg\/master\/server.zip\r\nmkdir -p \/mnt\/server\r\nunzip -o -d \/mnt\/server\/ server.zip\r\ncd \/mnt\/server\r\nchmod -R 744 \/mnt\/server\r\nexport HOME=\/mnt\/server",
             "container": "ubuntu:16.04",
             "entrypoint": "bash"
         }
