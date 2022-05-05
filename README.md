@@ -2,6 +2,8 @@
 [![Discord](https://img.shields.io/discord/609764930899673092)](https://discord.gg/QjtrkgF4ae)
 ![](https://img.shields.io/badge/status-prod-informational)
 
+This project is forked from HCG Cloud's VC:MP Egg
+
 Pterodactyl eggs - Vice City Multiplayer
 
 > This egg is running in our production, we will keep it well maintained and up to date.
