@@ -1,14 +1,19 @@
 {
     "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
     "meta": {
-        "version": "PTDL_v1"
+        "version": "PTDL_v1",
+        "update_url": null
     },
-    "exported_at": "2022-05-05T09:43:48+02:00",
+    "exported_at": "2022-05-06T20:23:43+02:00",
     "name": "VC:MP",
     "author": "mrsk1431298@gmail.com",
     "description": "Vice City Mutlplayer is modification of Grand Theft Auto Vice City Released in 2003. The following Vice City Multiplayer mod allow you to join from any territory around the world.",
-    "image": "mr_sk\/pterodactyl-images:ubuntu-base",
-    "startup": ".\/mpsvrrel64 -port {{SERVER_PORT}}",
+    "features": null,
+    "images": [
+        "saraexz\/ubuntu-java-ptero:latest"
+    ],
+    "file_denylist": [],
+    "startup": ".\/mpsvrrel64 -port {{SERVER_PORT}} -maxplayers {{MAX_PLAYERS}}",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"Started VC:MP 0.4\",\r\n    \"userInteraction\": []\r\n}",
@@ -18,9 +23,19 @@
     "scripts": {
         "installation": {
             "script": "#!\/bin\/bash\r\napt -y update\r\napt -y --no-install-recommends install curl unzip lib32gcc1 ca-certificates\r\ncd \/tmp\r\ncurl -sSL -o server.zip https:\/\/raw.githubusercontent.com\/MRSK143\/vc-mp-egg\/master\/server.zip\r\nmkdir -p \/mnt\/server\r\nunzip -o -d \/mnt\/server\/ server.zip\r\ncd \/mnt\/server\r\nchmod -R 744 \/mnt\/server\r\nexport HOME=\/mnt\/server",
-            "container": "ubuntu:16.04",
+            "container": "ubuntu:18.04",
             "entrypoint": "bash"
         }
     },
-    "variables": []
+    "variables": [
+        {
+            "name": "Maximum Players",
+            "description": "The highest number of players allowed to be on the server simultaneously.",
+            "env_variable": "MAX_PLAYERS",
+            "default_value": "100",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|numeric|min:1|max:100"
+        }
+    ]
 }
